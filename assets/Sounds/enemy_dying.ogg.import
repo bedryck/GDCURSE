@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/enemy_dying.ogg-5a5b40c7a767063d0ba8120cdf560255.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/enemy_dying.ogg"
+dest_files=[ "res://.import/enemy_dying.ogg-5a5b40c7a767063d0ba8120cdf560255.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
