@@ -11,5 +11,5 @@ dest_files=[ "res://.import/spring.ogg-728d11532ac39840567482285c9d496b.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

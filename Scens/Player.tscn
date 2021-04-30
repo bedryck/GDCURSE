@@ -1,0 +1,127 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/Graphics/Player/p3_front.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk11.png" type="Texture" id=3]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk05.png" type="Texture" id=4]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk02.png" type="Texture" id=5]
+[ext_resource path="res://assets/Graphics/Player/p3_stand.png" type="Texture" id=6]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk01.png" type="Texture" id=7]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk09.png" type="Texture" id=8]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk03.png" type="Texture" id=9]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk07.png" type="Texture" id=10]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk04.png" type="Texture" id=11]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk06.png" type="Texture" id=12]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk10.png" type="Texture" id=13]
+[ext_resource path="res://assets/Graphics/Player/p3_jump.png" type="Texture" id=14]
+[ext_resource path="res://assets/Graphics/Player/p3_walk/p3_walk08.png" type="Texture" id=15]
+[ext_resource path="res://assets/Graphics/Backgrounds/background_1.png" type="Texture" id=16]
+[ext_resource path="res://assets/Graphics/Backgrounds/background_2.png" type="Texture" id=17]
+[ext_resource path="res://assets/Graphics/Backgrounds/background_3.png" type="Texture" id=18]
+[ext_resource path="res://assets/Graphics/Backgrounds/background4.png" type="Texture" id=19]
+[ext_resource path="res://assets/Sounds/player_hurt.ogg" type="AudioStream" id=20]
+[ext_resource path="res://assets/Sounds/jump.ogg" type="AudioStream" id=22]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 32.8652
+height = 27.8197
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 460.252, 277.835 )
+collision_mask = 14
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "walk"
+frame = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+scroll_base_offset = Vector2( 0, -948 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.25, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer3"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.75, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer4"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -10.0
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -10.0

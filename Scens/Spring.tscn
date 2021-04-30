@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scens/Spring.gd" type="Script" id=1]
+[ext_resource path="res://assets/Graphics/Items/springboardDown.png" type="Texture" id=2]
+[ext_resource path="res://assets/Sounds/spring.ogg" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 34.875, 17.8752 )
+
+[node name="Spring" type="Area2D"]
+collision_layer = 8
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 2.97301 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.05176e-05, 19.3752 )
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_Spring_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
