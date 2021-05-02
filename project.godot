@@ -17,6 +17,10 @@ _global_script_class_icons={
 config/name="UdemyCurse"
 run/main_scene="res://Scens/Level1.tscn"
 
+[autoload]
+
+Globals="*res://Scripts/Globals.gd"
+
 [input]
 
 left={
@@ -38,13 +42,19 @@ jump={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
  ]
 }
+attac={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Level"
-2d_physics/layer_3="Spike"
+2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Items"
+2d_physics/layer_5="Projectile"
 
 [rendering]
 

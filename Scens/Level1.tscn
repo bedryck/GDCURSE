@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scens/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Graphics/Spritesheet/level.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scens/GameRules.gd" type="Script" id=6]
 [ext_resource path="res://Scens/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scens/Coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scens/Slime.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scens/Snail.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -294,3 +296,30 @@ position = Vector2( 39.2236, 522.309 )
 
 [node name="Coin" parent="Coins" instance=ExtResource( 8 )]
 position = Vector2( 993.377, 528.902 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 910.23, 528.902 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 829.424, 527.731 )
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 2101.14, 447.693 )
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 2258.29, 359.635 )
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 2396.47, 211.969 )
+
+[node name="Coin7" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 2275.9, -115.876 )
+
+[node name="Enemes" type="Node2D" parent="."]
+position = Vector2( 0, -0.376869 )
+
+[node name="Snail" parent="Enemes" instance=ExtResource( 10 )]
+position = Vector2( 402.441, 544.032 )
+
+[node name="Slime" parent="Enemes" instance=ExtResource( 9 )]
+position = Vector2( 731.975, 1315.98 )

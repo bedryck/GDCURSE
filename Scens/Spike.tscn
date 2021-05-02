@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scens/Spike.gd" type="Script" id=1]
+[ext_resource path="res://Scens/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/Graphics/Items/spikes.png" type="Texture" id=2]
 
 [node name="Spike" type="Area2D"]
@@ -14,4 +14,5 @@ polygon = PoolVector2Array( -35.604, 34.493, -23.729, 0.367985, 23.146, 0.117985
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-[connection signal="body_entered" from="." to="." method="_on_Spike_body_entered"]
+
+[connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
